@@ -1,0 +1,12 @@
+##################################################################################
+#1. URL matching is based on priority here,first URL matched will be considered
+#2. Take care of YAML syntax,sometimes a space can be a disaster
+#3. Add rules carefully, counts are client specific and thus stored in redis keys, revision of count for a rule should consider that
+#   it will not be the same for existing clients unless all the keys are flushed.
+#4. All other rules' attributes can be changed anytime as they are matched from here on every request.
+###################################################################################
+
+
+api/v2/test: {rule1: {time: 50,count: 2,learning_ratio: 1.5,learning_cap: 10},
+         rule2: {time: 100,count: 5,learning_ratio: 1.5,learning_cap: 10},
+          rule3: {time: 2,count: 1,learning_ratio: 1,learning_cap: 1}}
